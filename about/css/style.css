@@ -1,0 +1,478 @@
+@import url("https://fonts.googleapis.com/css?family=Russo+One");
+
+/************SPAN TEXT COLORS************/
+.off-gray {
+  color: #858585;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Russo One";
+}
+.wrapper {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "f
+    "
+    "body"
+    "foot";
+}
+.wrapper > div {
+  //border: 1px solid black;
+  padding: 1em;
+}
+#head {
+  grid-area: "header";
+  background: #000000;
+}
+#nav {
+  grid-area: "nav";
+  background: #eee;
+  padding: 0;
+}
+#body {
+  grid-area: "body";
+  padding: 0;
+}
+
+/************** HEADER ***************/
+.logo-wrapper {
+  display: inline-block;
+  float: left;
+  //border: 1px solid black;
+}
+.logo-wrapper p {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Russo One";
+  font-size: 35px;
+  text-shadow: -2px 2px 0px rgba(150, 150, 150, 1);
+}
+
+/***CUSTOM NAV CLASSES***/
+.nav-wrapper {
+  display: inline-block;
+  //border: 1px solid black;
+  float: right;
+  position: relative;
+  top: 80%;
+  transform: translateY(-110%);
+}
+.nav-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.nav-wrapper ul a {
+  text-decoration: none;
+  color: white;
+  font-family: "Russo One";
+  height: 100%;
+  text-transform: uppercase;
+}
+.nav-wrapper ul a li {
+  display: inline-block;
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 15px;
+  height: 100%;
+  margin: 0px 3px;
+  position: relative;
+}
+
+/*** Nav Click Animation ***/
+.nav-wrapper ul a li:hover:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: -2px;
+  left: 52%;
+  transform: translateX(-100%);
+  background: white;
+  animation: growbar 250ms linear;
+  animation-fill-mode: forwards;
+}
+.nav-wrapper ul a li:hover:before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: -2px;
+  right: 52%;
+  transform: translateX(100%);
+  background: #ddd;
+  animation: growbar 250ms linear;
+  animation-fill-mode: forwards;
+}
+.nav-wrapper ul a li:active {
+  background: #4f4f4f;
+  border-radius: 5px;
+}
+
+/*** Mobile Menu Shown only when width below -500px ***/
+.ham-menu {
+  width: 20px;
+  height: 20px;
+  //border: 1px solid white;
+  position: relative;
+  display: none;
+  cursor: pointer;
+  margin: 0px;
+  top: 0px;
+}
+.ham-menu span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  transition: 250ms;
+}
+.ham-menu span:first-child {
+  top: 2px;
+  left: 0px;
+  background: #eee;
+}
+.ham-menu span:nth-child(2) {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ddd;
+}
+.ham-menu span:last-child {
+  bottom: 2px;
+  left: 0px;
+  background: #ccc;
+}
+.ham-menu.open span:first-child {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.ham-menu.open span:nth-child(2) {
+  display: none;
+}
+.ham-menu.open span:last-child {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/*** Mobile Nav ***/
+
+.mobile-nav-wrapper {
+  display: block;
+  //border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  display: none;
+}
+.mobile-nav-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.mobile-nav-wrapper ul a {
+  text-decoration: none;
+  color: initial;
+  text-transform: uppercase;
+}
+.mobile-nav-wrapper ul a li {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  font-size: 14px;
+  padding: 15px 0px;
+  position: relative;
+  text-align: center;
+}
+.mobile-nav-wrapper ul a li:hover {
+  background: #ccc;
+}
+
+/********* BODY SUBGRID *********/
+
+.content-wrapper {
+  display: subgrid;
+  grid-gap: 0px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "one"
+    "two"
+    "three"
+    "four";
+}
+.content-wrapper > div {
+  //border: 1px solid black;
+  padding: 1em;
+  height: 500px;
+}
+#one {
+  grid-area: "one";
+  position: relative;
+  padding: 3em 1em;
+}
+#two {
+  grid-area: "two";
+  background: #383838;
+}
+#three {
+  grid-area: "three";
+}
+#four {
+  grid-area: "four";
+}
+
+/******* FIRST INFORMATION SECTION ********/
+#one:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0.2;
+}
+
+/********* TITLES *********/
+div[class*="box-title"] {
+  display: inline-block;
+  position: relative;
+  z-index: 5;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+}
+div[class*="box-title"]:after {
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.box-title-l {
+  padding: 10px 50px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.box-title-l:after {
+  content: "";
+  background: #eee;
+}
+
+.box-title-s {
+  padding: 10px 50px;
+  font-size: 30px;
+}
+.box-title-s:after {
+  content: "";
+  background: #bbb;
+}
+
+/*************** VAULT *************/
+.vault-container {
+  display: block;
+  width: 100%;
+  height: auto;
+  //border: 1px solid black;
+  padding: 15px 0px;
+}
+
+.vault-container .vault {
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  //border: 1px solid red;
+}
+
+.vault-container .vault {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vault-container .vault-bg {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 100%;
+  z-index: -1;
+  opacity: 0.8;
+  position: relative;
+}
+
+/*********** MODAL DESIGN *************/
+.info-modal {
+  width: 80%;
+  height: 80%;
+  border: 3px solid gray;
+  border-radius: 5px;
+  background: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: bouncein 250ms linear;
+  animation-fill-mode: forwards;
+  z-index: 1000;
+}
+
+.close-modal {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #bbb;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.close-modal:active {
+  transition: 250ms;
+  background: #ccc;
+}
+
+@keyframes bouncein {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes growbar {
+  0% {
+    width: 0%;
+  }
+  60% {
+    width: 50%;
+  }
+  80% {
+    width: 44%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+/***** MEDIA QUERY FOR SIZING *****/
+@media (max-width: 1000px) {
+  .nav-wrapper ul a li {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 870px) {
+  .nav-wrapper ul {
+    display: none;
+  }
+  .ham-menu {
+    display: block;
+  }
+  .info-modal {
+    width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    grid-gap: 0;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "body"
+      "foot";
+  }
+  .info-modal {
+    width: 98%;
+  }
+  div[class*="box-title"] {
+    padding: 10px 0px;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .box-title-l {
+    font-size: 30px;
+  }
+  .box-title-s {
+    font-size: 20px;
+    letter-spacing: 2px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  div[class*="box-title"] {
+    padding: 10px 0px;
+  }
+  .box-title-l {
+    font-size: 20px;
+  }
+  .box-title-s {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 300px) {
+  div[class*="box-title"] {
+    padding: 10px 0px;
+  }
+  .box-title-l {
+    font-size: 15px;
+  }
+  .box-title-s {
+    font-size: 10px;
+  }
+}
+
+.credits {
+  color: white;
+  font-family: "Russo One";
+  font-size: 40px;
+  position: absolute;
+  left: 0px;
+  top: 150px;
+}
+
+.about {
+  color: white;
+  font-family: "Russo One";
+  font-size: 40px;
+  position: absolute;
+  left: 1000px;
+  top: 150px;
+}
