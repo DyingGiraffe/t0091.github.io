@@ -70,7 +70,7 @@ body {
   //border: 1px solid black;
   float: right;
   position: relative;
-  top: 90%;
+  top: 60%;
   transform: translateY(-110%);
 }
 .nav-wrapper ul {
